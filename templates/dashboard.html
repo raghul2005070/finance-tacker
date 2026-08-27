@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Top Row: Summary Cards -->
+<div class="row mb-4">
+    <div class="col-md-4">
+        <div class="card shadow-sm border-0 h-100">
+            <div class="card-body text-center d-flex flex-column justify-content-center">
+                <h5 class="card-title text-muted fw-bold">Total Balance</h5>
+                <h2 class="text-primary fw-bold">₹0.00</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card shadow-sm border-0 h-100">
+            <div class="card-body text-center">
+                <h5 class="card-title text-muted fw-bold">Income</h5>
+                <h2 class="text-success fw-bold">₹0.00</h2>
+                <button class="btn btn-success btn-sm mt-3 w-75 rounded-pill">Add Income</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card shadow-sm border-0 h-100">
+            <div class="card-body text-center">
+                <h5 class="card-title text-muted fw-bold">Expenses</h5>
+                <h2 class="text-danger fw-bold">₹0.00</h2>
+                <button class="btn btn-danger btn-sm mt-3 w-75 rounded-pill">Add Expense</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bottom Row: Transactions -->
+<div class="row">
+    <div class="col-12">
+        <h4 class="fw-bold mb-3">Recent Transactions</h4>
+        <div class="card shadow-sm border-0">
+            <div class="card-body text-center text-muted p-5">
+                <p class="mb-0">No transactions found. Add income or expenses to get started.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
