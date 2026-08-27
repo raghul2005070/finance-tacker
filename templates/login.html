@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Personal Finance</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons (for the wallet icon) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+
+<!-- Flexbox utilities to perfectly center the form on the screen -->
+<body class="bg-light d-flex align-items-center justify-content-center" style="min-height: 100vh;">
+
+    <!-- Restrict the width of the main container -->
+    <main class="w-100" style="max-width: 400px; padding: 15px;">
+        
+        <!-- The Login Card -->
+        <div class="card shadow-sm border-0 rounded-4 p-4 p-md-5 bg-white">
+            
+            <!-- Branding / Header -->
+            <div class="text-center mb-4">
+                <i class="bi bi-wallet2 text-primary mb-2" style="font-size: 3rem;"></i>
+                <h2 class="fw-bold mt-2">Welcome Back</h2>
+                <p class="text-muted small">Please sign in to manage your finances</p>
+            </div>
+
+            <!-- The Form -->
+            <form action="/login" method="POST">
+                
+                <!-- Floating Label for Email -->
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="emailInput" name="email" placeholder="name@example.com" required>
+                    <label for="emailInput" class="text-muted">Email address</label>
+                </div>
+                
+                <!-- Floating Label for Password -->
+                <div class="form-floating mb-4">
+                    <input type="password" class="form-control" id="passwordInput" name="password" placeholder="Password" required>
+                    <label for="passwordInput" class="text-muted">Password</label>
+                </div>
+
+                <!-- Submit Button -->
+                <button class="btn btn-primary w-100 py-3 rounded-pill fw-bold shadow-sm" type="submit">
+                    Log In
+                </button>
+                
+                <!-- Register Link -->
+                <div class="text-center mt-4">
+                    <p class="text-muted small mb-0">
+                        Don't have an account? 
+                        <a href="/register" class="text-decoration-none fw-bold text-primary">Register here</a>
+                    </p>
+                </div>
+                
+            </form>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
