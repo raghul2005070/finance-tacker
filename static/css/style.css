@@ -1,0 +1,433 @@
+/* =========================================
+   NEON FINISH — WEBSITE CSS TEMPLATE
+   ========================================= */
+
+:root {
+    --bg: #05050a;
+    --bg-secondary: #0b0b14;
+    --surface: rgba(15, 15, 28, 0.75);
+    --neon-cyan: #00f6ff;
+    --neon-pink: #ff00d4;
+    --neon-purple: #8b5cf6;
+    --neon-green: #39ff14;
+    --text: #f5f7ff;
+    --muted: #9295aa;
+    --border: rgba(0, 246, 255, 0.35);
+    --glow-cyan: 0 0 5px var(--neon-cyan), 0 0 15px var(--neon-cyan), 0 0 35px rgba(0, 246, 255, 0.55);
+    --glow-pink: 0 0 5px var(--neon-pink), 0 0 15px var(--neon-pink), 0 0 35px rgba(255, 0, 212, 0.55);
+}
+
+
+/* ---------- RESET ---------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background: radial-gradient(circle at 20% 20%, rgba(0, 246, 255, 0.08), transparent 30%), radial-gradient(circle at 80% 30%, rgba(255, 0, 212, 0.08), transparent 30%), var(--bg);
+    color: var(--text);
+    font-family: Inter, Arial, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+
+/* ---------- NEON GRID BACKGROUND ---------- */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image: linear-gradient(rgba(0, 246, 255, 0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 246, 255, 0.035) 1px, transparent 1px);
+    background-size: 50px 50px;
+    mask-image: linear-gradient( to bottom, black, transparent 90%);
+}
+
+
+/* ---------- CONTAINER ---------- */
+
+.container {
+    width: min(1200px, 90%);
+    margin: auto;
+}
+
+
+/* ---------- NAVBAR ---------- */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 18px 0;
+    background: rgba(5, 5, 10, 0.7);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(0, 246, 255, 0.15);
+}
+
+.navbar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    color: var(--neon-cyan);
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: var(--glow-cyan);
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav-links a {
+    position: relative;
+    color: var(--muted);
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--neon-cyan);
+    text-shadow: 0 0 12px var(--neon-cyan);
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -7px;
+    width: 0;
+    height: 2px;
+    background: var(--neon-cyan);
+    box-shadow: var(--glow-cyan);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+
+/* ---------- HERO ---------- */
+
+.hero {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 100px 0;
+    position: relative;
+}
+
+.hero-content {
+    max-width: 850px;
+}
+
+.hero h1 {
+    font-size: clamp(3rem, 8vw, 7rem);
+    line-height: 0.95;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -3px;
+    background: linear-gradient( 90deg, var(--neon-cyan), #fff, var(--neon-pink));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 0 15px rgba(0, 246, 255, 0.35));
+    animation: neonPulse 3s infinite alternate;
+}
+
+.hero p {
+    max-width: 650px;
+    margin: 30px auto;
+    color: var(--muted);
+    font-size: 1.1rem;
+}
+
+
+/* ---------- BUTTONS ---------- */
+
+.btn {
+    display: inline-block;
+    padding: 13px 28px;
+    border: 1px solid var(--neon-cyan);
+    border-radius: 6px;
+    color: var(--neon-cyan);
+    background: rgba(0, 246, 255, 0.05);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+    box-shadow: inset 0 0 10px rgba(0, 246, 255, 0.08), 0 0 10px rgba(0, 246, 255, 0.2);
+    transition: 0.3s ease;
+}
+
+.btn:hover {
+    color: #05050a;
+    background: var(--neon-cyan);
+    box-shadow: var(--glow-cyan);
+    transform: translateY(-3px);
+}
+
+.btn-pink {
+    border-color: var(--neon-pink);
+    color: var(--neon-pink);
+}
+
+.btn-pink:hover {
+    background: var(--neon-pink);
+    box-shadow: var(--glow-pink);
+}
+
+
+/* ---------- SECTION ---------- */
+
+.section {
+    padding: 100px 0;
+}
+
+.section-title {
+    margin-bottom: 50px;
+    color: var(--neon-cyan);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: var(--glow-cyan);
+}
+
+
+/* ---------- NEON CARDS ---------- */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.card {
+    position: relative;
+    padding: 30px;
+    background: linear-gradient( 145deg, rgba(0, 246, 255, 0.07), rgba(255, 0, 212, 0.03));
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    border-color: var(--neon-cyan);
+    box-shadow: 0 0 10px rgba(0, 246, 255, 0.2), 0 0 35px rgba(0, 246, 255, 0.12);
+}
+
+.card h3 {
+    margin-bottom: 12px;
+    color: var(--neon-cyan);
+    font-size: 1.4rem;
+    text-shadow: 0 0 8px rgba(0, 246, 255, 0.7);
+}
+
+.card p {
+    color: var(--muted);
+}
+
+
+/* ---------- NEON ICON ---------- */
+
+.neon-icon {
+    width: 55px;
+    height: 55px;
+    display: grid;
+    place-items: center;
+    margin-bottom: 20px;
+    border: 1px solid var(--neon-pink);
+    border-radius: 50%;
+    color: var(--neon-pink);
+    font-size: 1.4rem;
+    box-shadow: var(--glow-pink);
+}
+
+
+/* ---------- GLOWING INPUTS ---------- */
+
+.input,
+.textarea {
+    width: 100%;
+    padding: 15px 18px;
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(0, 246, 255, 0.3);
+    border-radius: 6px;
+    outline: none;
+    color: white;
+    font-size: 1rem;
+    transition: 0.3s ease;
+}
+
+.input:focus,
+.textarea:focus {
+    border-color: var(--neon-cyan);
+    box-shadow: 0 0 5px var(--neon-cyan), 0 0 20px rgba(0, 246, 255, 0.2);
+}
+
+.textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+
+/* ---------- NEON DIVIDER ---------- */
+
+.neon-line {
+    width: 100%;
+    height: 1px;
+    margin: 40px 0;
+    background: linear-gradient( 90deg, transparent, var(--neon-cyan), var(--neon-pink), transparent);
+    box-shadow: 0 0 8px var(--neon-cyan), 0 0 12px var(--neon-pink);
+}
+
+
+/* ---------- BADGE ---------- */
+
+.badge {
+    display: inline-block;
+    padding: 5px 12px;
+    border: 1px solid var(--neon-green);
+    border-radius: 20px;
+    color: var(--neon-green);
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: 0 0 6px rgba(57, 255, 20, 0.7);
+}
+
+
+/* ---------- PRICING ---------- */
+
+.price-card {
+    padding: 40px 30px;
+    text-align: center;
+    border: 1px solid rgba(255, 0, 212, 0.3);
+    border-radius: 14px;
+    background: rgba(255, 0, 212, 0.025);
+    transition: 0.35s ease;
+}
+
+.price-card:hover {
+    border-color: var(--neon-pink);
+    box-shadow: var(--glow-pink);
+    transform: scale(1.03);
+}
+
+.price {
+    margin: 20px 0;
+    color: white;
+    font-size: 3rem;
+    font-weight: 900;
+    text-shadow: 0 0 15px var(--neon-pink);
+}
+
+
+/* ---------- FOOTER ---------- */
+
+.footer {
+    padding: 50px 0;
+    border-top: 1px solid rgba(0, 246, 255, 0.15);
+    color: var(--muted);
+    text-align: center;
+}
+
+
+/* ---------- FLOATING GLOW ---------- */
+
+.glow-orb {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: var(--neon-cyan);
+    filter: blur(120px);
+    opacity: 0.12;
+    pointer-events: none;
+    animation: floatOrb 8s ease-in-out infinite;
+}
+
+.glow-orb.pink {
+    background: var(--neon-pink);
+    animation-delay: -4s;
+}
+
+
+/* ---------- ANIMATIONS ---------- */
+
+@keyframes neonPulse {
+    from {
+        filter: drop-shadow( 0 0 5px rgba(0, 246, 255, 0.2));
+    }
+    to {
+        filter: drop-shadow( 0 0 25px rgba(0, 246, 255, 0.6));
+    }
+}
+
+@keyframes floatOrb {
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+    50% {
+        transform: translate(80px, -50px);
+    }
+}
+
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 900px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .nav-links {
+        gap: 15px;
+    }
+}
+
+@media (max-width: 600px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+    .navbar-inner {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .hero {
+        min-height: 80vh;
+        padding: 70px 0;
+    }
+    .hero h1 {
+        letter-spacing: -1px;
+    }
+    .section {
+        padding: 70px 0;
+    }
+}
